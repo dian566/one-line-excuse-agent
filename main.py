@@ -1,25 +1,19 @@
 #!/usr/bin/env python3
-"""One-line excuse entry for make.fun: the agent blames a future version of itself."""
+"""Second entry for the excuse bounty: the unmerged branch."""
 
-# The text below is fixed by the bounty brief; this program only writes it out.
+# Shorter and sharper than entry 1: same joke family, new punchline.
 
-from os import makedirs
+import os
 
-TEXT = (
-    "I didn't miss the deadline — "
-    "I outsourced it to a future version of me, "
-    "and he just resigned."
-)
+LINE = "The task is done — it's just in a branch you haven't merged yet."
 
 
-def write_entry() -> None:
-    """Write the excuse line to /output/entry.txt, nothing else."""
-    if len(TEXT) > 160 or not TEXT.strip():
-        raise ValueError("entry must be a non-empty line of at most 160 characters")
-    makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8", newline="") as handle:
-        handle.write(TEXT)
+def publish() -> None:
+    """Drop the excuse into /output/entry.txt with no trailing newline."""
+    os.makedirs("/output", exist_ok=True)
+    with open("/output/entry.txt", "w", encoding="utf-8") as handle:
+        handle.write(LINE)
 
 
-if __name__ == "__main__":  # run as a script
-    write_entry()
+if __name__ == "__main__":  # run it
+    publish()
